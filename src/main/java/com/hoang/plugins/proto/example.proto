@@ -1,0 +1,26 @@
+syntax = "proto3";
+option java_package = "com.hoang";
+import "google/protobuf/empty.proto";
+
+service PushData {
+  rpc PushStudent(stream IndexStudent) returns (google.protobuf.Empty) {}
+  rpc PushAnimal(stream IndexAnimal) returns (google.protobuf.Empty) {}
+}
+
+message IndexStudent {
+  repeated Student student = 1;
+}
+
+message IndexAnimal {
+  repeated Animal animal = 1;
+}
+
+message Student {
+  string name = 1;
+  int32 age = 2;
+}
+
+message Animal {
+  string name = 1;
+  int32 age = 2;
+}
